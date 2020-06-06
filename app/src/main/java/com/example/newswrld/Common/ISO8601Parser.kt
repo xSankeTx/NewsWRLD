@@ -6,8 +6,10 @@ import java.util.*
 object ISO8601Parser {
     fun parse(params: String): Date {
         var input=params
-        val df=SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz")
-        if (input.endsWith("z"))
+
+        val df=SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+
+        if (input.endsWith("Z"))
            input=input.substring(0,input.length-1)+"GMT-00:00"
         else{
             val inset=6
